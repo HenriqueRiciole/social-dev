@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+
 const WIDTH_BREAK= '700px';
 
 const StyledFlex= styled.div`
@@ -20,7 +21,7 @@ const StyledImage= styled.div`
 `
 
 const StyledContainer= styled.div`
-  backgrond-color: white;
+  backgrond-color: ${props=> props.theme.white};
   padding: 30px 50px;
 
   @media (min-width:${WIDTH_BREAK}){
