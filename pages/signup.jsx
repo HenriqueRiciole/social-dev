@@ -18,6 +18,7 @@ const Form= styled.form`
   flex-direction:column;
   margin: 20px 0;
   gap: 20px;
+  
 `
 
 const Text= styled.p`
