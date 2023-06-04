@@ -1,4 +1,12 @@
+import styled from "styled-components"
+
 import Navbar from "../src/components/layout/Navbar"
+import Container from "../src/components/layout/Container"
+import CreatePost from "../src/components/cards/CreatePost"
+
+const Content= styled.div`
+  margin: 50px 0;
+`
 
 function HomePage () {
   
@@ -6,9 +14,11 @@ function HomePage () {
 
     <>
       <Navbar/>
-      <div>
-        SejaDev
-      </div>
+      <Content>
+        <Container>
+           <CreatePost/>
+        </Container>
+      </Content>
     </>
   )
 }
