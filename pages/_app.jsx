@@ -28,7 +28,7 @@ const GlobalStyle= createGlobalStyle`
 
 function App ({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider ThemeProvider theme={theme}>
       <GlobalStyle/>  
       <Component {...pageProps} />
     </ThemeProvider>
