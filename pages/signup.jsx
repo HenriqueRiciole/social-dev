@@ -1,6 +1,10 @@
 import { useState } from "react"
 import styled from "styled-components"
 import Link from 'next/link'
+import { useForm } from "react-hook-form"
+import {joiResolver} from "@hookform/resolvers/joi"
+
+import { signupSchema } from "../modules/user/user.schema"
 
 import ImageWithSpace from "../src/components/layout/ImageWithSpace"
 
@@ -27,22 +31,18 @@ const Text= styled.p`
 `
 
 function SignupPage(){ 
-  const [firstName, setFirstName]= useState('')
-  const [lastName, setLastName]= useState('')
-  const [user, setUser]= useState('')
-  const [email, setEmail]= useState('')
-  const [password, setPassword]= useState('')
+  const {register,handleSubmit, formState:{ errors}}= useForm({
+    resolver: joiResolver(signupSchema)
 
-  const handleForm= (event)=> {
-    event.preventDefault()
-    console.log({
-      firstName,
-      lastName,
-      user,
-      email,
-      password
-    })
+  })
+
+ 
+
+  const handleForm= (data)=> {
+    console.log(data)
   }
+
+  console.log(errors)
 
     return(
     <ImageWithSpace>
@@ -50,13 +50,13 @@ function SignupPage(){
         <H4>Tudo que acontece no mundo Dev, está aqui.</H4>
         <FormContainer>
             <H2>Crie sua conta</H2>
-            <Form onSubmit={handleForm}>
-              <Input Label="Nome" onChange={(event)=> {setFirstName(event.target.value)}}/>            
-              <Input Label="Sobrenome" onChange={({target})=> {setLastName(target.value)}}/>
-              <Input Label="Usuário" onChange={({target})=> {setUser(target.value)}}/>
-              <Input Label="Email" type="email" onChange={({target})=> {setEmail(target.value)}}/>
-              <Input Label="Senha" type="password" onChange={({target})=> {setPassword(target.value)}}/>
-              <Button>Cadastrar</Button>
+            <Form onSubmit={handleSubmit(handleForm)}>
+              <Input Label="Nome" {... register('firstName')}/>            
+              <Input Label="Sobrenome" {... register('lastName')}/>
+              <Input Label="Usuário" {... register('user')}/>
+              <Input Label="Email" type="email" {... register('email')}/>
+              <Input Label="Senha" type="password" {... register('password')}/>
+              <Button type="submit">Cadastrar</Button>
             </Form>
             <Text>Já possui uma conta? <Link href="/login">Faça seu login.</Link></Text>
         </FormContainer>
