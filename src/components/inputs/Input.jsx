@@ -20,18 +20,34 @@ const StyleInput= styled.input`
   box-sizing: border-box;
   border-radius: 10px;
 
+  ${props=> props.error && `border:2px solid ${props.theme.error};`}
+
+  &:focus{
+    outline:none;
+  }
+
 `
 
-const Input= forwardRef(
-  ({Label, ...props}, ref)=> {
+const ErrorLabel= styled.span`
+ color:${props=> props.theme.error};
+ font-weight: bold;
+ font - size: 14px;
+`
+
+const errorMessage={
+  'string.empty': 'Este campo é obrigatório',
+  'string.email': 'Por favor, digite um e-mail válido.'
+}
+
+const Input= forwardRef(({Label, error, ...props}, ref)=> {
+  
     return(
       <InputContainer>
         <StyleLabel>{Label}</StyleLabel>
-        <StyleInput placeholder={Label} {...props} ref={ref}/>
+        <StyleInput placeholder={Label} error={error} {...props} ref={ref}/>
+        {error && <ErrorLabel> {errorMessage[error.type] || error.message}</ErrorLabel>}
       </InputContainer>
-
     )
-
 })
 
 export default Input
