@@ -36,15 +36,16 @@ const ErrorLabel= styled.span`
 
 const errorMessage={
   'string.empty': 'Este campo é obrigatório',
-  'string.email': 'Por favor, digite um e-mail válido.'
+  'string.email': 'Por favor, digite um e-mail válido.',
+  'duplicated': 'Já existe uma conta registrada com este valor'
 }
 
 const Input= ({Label, name, control, defaultValue='', ...props})=> {
   const {
-    fild:{value, onChange},
+    field:{value, onChange},
     fieldState:{error}
 
-  }= useController({ name, control,defaultValue })
+  }= useController({ name, control ,defaultValue })
     return(
       <InputContainer>
         <StyleLabel>{Label}</StyleLabel>
