@@ -7,3 +7,8 @@ export const signupSchema= Joi.object({
     email:Joi.string().email({tlds: {allow: false}}).required().max(100).message('O campo "email" só pode ter {{#limit}} caracteres. '),
     password:Joi.string().required().max(50).message('O campo "senha" só pode ter {{#limit}} caracteres. ').min(6).message('O campo "senha" precisa ter no mínimo {{#limit}} caracteres. '),
 })
+
+export const loginSchema= Joi.object({
+    userOrEmail: Joi.string().required(),
+    password: Joi.string().required().max(50).message('O campo "senha" só pode ter {{#limit}} caracteres. ').min(6).message('O campo "senha" precisa ter no mínimo {{#limit}} caracteres. ')
+  })
