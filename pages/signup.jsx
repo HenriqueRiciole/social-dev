@@ -47,7 +47,7 @@ function SignupPage(){
         router.push('/')
       }
     }catch(err){
-      if(err.response.data === 11000){
+      if(err.response.data.code === 11000){
         setError(err.response.data.duplicateKey, {
           type: 'duplicated'
         })
