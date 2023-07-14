@@ -5,7 +5,7 @@ import createHandler from '../../../lib/middlewares/nextconect'
 import validate from '../../../lib/middlewares/validation'
 import { login} from '../../../modules/user/user.service'
 
-import { ironConfing } from '../../../lib/middlewares/ironsession'
+import { ironConfig } from '../../../lib/middlewares/ironsession'
 import { loginSchema } from '../../../modules/user/user.schema'
 
 
@@ -27,4 +27,4 @@ handler.post(validate({body: loginSchema}), async (req, res)=>{
   }
 })
 
-export default withIronSessionApiRoute(handler, ironConfing)
+export default withIronSessionApiRoute(handler, ironConfig)

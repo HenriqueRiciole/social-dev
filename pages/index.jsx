@@ -1,4 +1,8 @@
 import styled from "styled-components"
+import{ withIronSessionSsr} from 'iron-session/next'
+
+
+import { ironConfig} from '../lib/middlewares/ironsession'
 
 import Navbar from "../src/components/layout/Navbar"
 import Container from "../src/components/layout/Container"
@@ -31,7 +35,7 @@ const PostContainer= styled.div`
 
 `
 
-function HomePage () {
+function HomePage ({ user}) {
   
   return (
 
@@ -39,7 +43,7 @@ function HomePage () {
       <Navbar/>
       <Content>
         <Container>
-           <CreatePost/>
+           <CreatePost username={user.user}/>
            <LastPostText>Últimas Postagens</LastPostText>
            <ContainerRefreshPosts>
              <RefreshPosts>Carregar novas postagens</RefreshPosts>
@@ -55,4 +59,27 @@ function HomePage () {
   )
 }
 
-export default HomePage
+export const getServerSideProps= withIronSessionSsr(
+  async function getServerSideProps({req}){
+    const user= req.session.user
+
+    if(!user){
+      return{
+        redirect:{
+          permanent:false,
+          destination:'/login'
+        }
+      }
+    }
+
+    return {
+      props:{
+        user
+      }
+    }
+},
+ironConfig
+
+)
+
+export default HomePage 
