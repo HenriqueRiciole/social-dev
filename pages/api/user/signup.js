@@ -4,7 +4,7 @@ import {withIronSessionApiRoute} from 'iron-session/next'
 import createHandler from '../../../lib/middlewares/nextconect'
 
 import validate from '../../../lib/middlewares/validation'
-import { ironConfing } from '../../../lib/middlewares/ironsession'
+import { ironConfig } from '../../../lib/middlewares/ironsession'
 
 import { signupUser} from '../../../modules/user/user.service'
 //teve que abrir as chaves pq não é um export default
@@ -36,4 +36,4 @@ signup.post(validate({body:signupSchema}),async (req, res)=>{
  })
 
 
-export default withIronSessionApiRoute(signup, ironConfing)
+export default withIronSessionApiRoute(signup, ironConfig)

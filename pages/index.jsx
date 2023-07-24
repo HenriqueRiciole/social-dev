@@ -4,6 +4,7 @@ import{ withIronSessionSsr} from 'iron-session/next'
 import axios from "axios"
 
 
+
 import { ironConfig} from '../lib/middlewares/ironsession'
 
 import Navbar from "../src/components/layout/Navbar"
@@ -15,7 +16,7 @@ import Post from "../src/components/cards/Post"
 const Content= styled.div`
   margin: 50px 0;
 `
-const LastPostText= styled(H3)`// uma forma diferente de utilizar o styled
+const LastPostText= styled(H3)`
   padding: 40px 0; 
 `
 
@@ -37,6 +38,7 @@ const PostContainer= styled.div`
 
 `
 
+
 function HomePage ({ user}) {
   const[data, setData]= useState([])
 
@@ -48,9 +50,9 @@ function HomePage ({ user}) {
   useEffect(()=>{
     handlePosts()
   } ,[])
-  
-  
 
+ 
+  
   return (
 
     <>
