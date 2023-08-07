@@ -35,7 +35,7 @@ function App ({ Component, pageProps }) {
   },[])
 
   return (
-    <ThemeProvider ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle/>  
       <Component {...pageProps} />
     </ThemeProvider>
