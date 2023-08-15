@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import styled from "styled-components"
 import{ withIronSessionSsr} from 'iron-session/next'
 import axios from "axios"
-/*import useSWR from "swr" */
+//import useSWR from "swr" 
 
 
 
@@ -44,10 +44,10 @@ const fetcher= url=> axios.get(url).then(res=> res.data)
 function HomePage ({ user}) {
 /*
   const { data }= useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/post`,fetcher)
- */ 
+*/ 
+ 
   const[data, setData]= useState([])
 
- 
   const handlePosts= async ()=> {
     const response= await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
     setData(response.data)
