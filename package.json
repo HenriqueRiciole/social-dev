@@ -15,6 +15,7 @@
     "buffer": "^6.0.3",
     "iron-session": "^6.0.5",
     "joi": "^17.9.2",
+    "joi-objectid": "^4.0.2",
     "moment": "^2.29.1",
     "mongoose": "^6.11.3",
     "next": "^12.3.4",

@@ -38,15 +38,15 @@ const PostContainer= styled.div`
   margin-top: 20px;
 
 `
-/*
+
 const fetcher= url=> axios.get(url).then(res=> res.data)
-*/
+
 function HomePage ({ user}) {
-/*
+
   const { data }= useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/post`,fetcher)
-*/ 
+
  
-  const[data, setData]= useState([])
+ /* const[data, setData]= useState([])
 
   const handlePosts= async ()=> {
     const response= await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
@@ -57,8 +57,8 @@ function HomePage ({ user}) {
     handlePosts()
   } ,[])
 
- 
-  
+ */
+
   return (
 
     <>
@@ -67,9 +67,6 @@ function HomePage ({ user}) {
         <Container>
            <CreatePost username={user.user}/>
            <LastPostText>Últimas Postagens</LastPostText>
-           <ContainerRefreshPosts>
-             <RefreshPosts>Carregar novas postagens</RefreshPosts>
-           </ContainerRefreshPosts>
            <PostContainer>
             {
               data?.map(post=>
@@ -78,6 +75,8 @@ function HomePage ({ user}) {
                   text={post.text}
                   user={post.createdBy.user}
                   date={post.createdDate}
+                  isOwner={post.createdBy._id === user.id}
+                  id={post._id}
                 />)
             }
              

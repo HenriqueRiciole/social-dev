@@ -8,9 +8,16 @@ export const createPost= async(body, user)=>{
     })
 }
 
-export const getPosts= async( Limit= 10)=>{
+export const getPosts= async( Limit= 15)=>{
     return await Post.find()
     .populate('createdBy','user' )
     .sort({createdDate: -1})
     .limit(Limit)
+}
+
+export const deletePost= async(id,user)=>{
+    return await Post.findOneAndDelete({
+        _id:id,
+        createdBy: user.id
+    })
 }

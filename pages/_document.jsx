@@ -19,7 +19,7 @@ class NewDocument extends Document {
     )
   }
 }
-
+/*
 NewDocument.getInitialProps = async (ctx) => {
   const sheet = new ServerStyleSheet()
   const originalRenderPage = ctx.renderPage
@@ -44,5 +44,5 @@ NewDocument.getInitialProps = async (ctx) => {
     sheet.seal()
   }
 }
-
+*/
 export default NewDocument

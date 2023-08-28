@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import {joiResolver} from '@hookform/resolvers/joi';
 import axios from "axios";
-//import { useSWRConfig } from "swr";
+import { useSWRConfig } from "swr";
 
 import {createPostSchema} from '../../../modules/post/post.schema'
 
@@ -45,7 +45,7 @@ const BottomText= styled.p`
 
 
 function CreatePost( {username}){
-  //const {mutate}= useSWRConfig()
+  const {mutate}= useSWRConfig()
   const {control, handleSubmit, formState:{isValid}, reset}= useForm({
     resolver: joiResolver(createPostSchema),
     mode:'all'
@@ -55,7 +55,7 @@ function CreatePost( {username}){
     const response= await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/post`, data)
     if(response.status === 201){
       reset()
-     // mutate(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
+      mutate(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
     }
   }
     return(
