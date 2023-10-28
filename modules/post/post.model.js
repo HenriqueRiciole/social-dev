@@ -8,4 +8,4 @@ const PostSchema= new mongoose.Schema({
     createBy:{type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User'}
 })
 
-export default mongoose.model.Post || mongoose.model( 'Post', PostSchema)
+export default mongoose.models.Post || mongoose.model( 'Post', PostSchema)
