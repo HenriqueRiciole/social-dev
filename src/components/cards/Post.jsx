@@ -33,7 +33,7 @@ function Post({text, user, date, isOwner, id}){
     console.log("EDITAR PUBLICAÇÃO")
   }
 
-  const handleDelete= async ()=> {
+  const handleDelete=  async ()=> {
     try{
       const response= await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/post`, {
         data:{
