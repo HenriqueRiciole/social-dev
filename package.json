@@ -9,17 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "@hookform/resolvers": "^2.8.8",
-    "axios": "^0.26.0",
-    "bcryptjs": "^2.4.3",
-    "iron-session": "^6.0.5",
-    "joi": "^17.6.0",
-    "joi-objectid": "^4.0.2",
-    "moment": "^2.29.1",
-    "mongoose": "^6.2.4",
-    "next": "^12.0.7",
-=======
     "@hookform/resolvers": "^2.9.11",
     "axios": "^0.26.1",
     "bcryptjs": "^2.4.3",
@@ -30,21 +19,19 @@
     "moment": "^2.29.1",
     "mongoose": "^6.11.3",
     "next": "^12.3.4",
->>>>>>> 4389f275f3e925532b25baeb740b85c60cf2984c
     "next-connect": "^0.12.2",
     "next-joi": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-<<<<<<< HEAD
+
     "react-hook-form": "^7.27.1",
     "styled-components": "^5.3.3",
     "swr": "^1.2.2"
-=======
     "react-hook-form": "^7.45.1",
     "styled-components": "^5.3.3",
     "swr": "^1.2.2",
     "useref": "^1.4.4"
->>>>>>> 4389f275f3e925532b25baeb740b85c60cf2984c
+
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^2.0.6"
