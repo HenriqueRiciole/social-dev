@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { withIronSessionApiRoute} from 'iron-session/next'
 
 import createHandler from '../../../lib/middleware/nextconnect'
@@ -47,53 +46,3 @@ handler
  })
 
  export default withIronSessionApiRoute (handler, ironConfig)
-=======
-import {withIronSessionApiRoute} from 'iron-session/next'
-
-import createHandler from '../../../lib/middlewares/nextconect'
-import validate from '../../../lib/middlewares/validation'
-import { ironConfig } from '../../../lib/middlewares/ironsession'
-
-import { createPostSchema, deletePostSchema } from '../../../modules/post/post.schema'
-import { createPost,deletePost, getPosts } from '../../../modules/post/post.service'
-
-const handler= createHandler()
-
-handler.post(validate({body: createPostSchema}), async (req, res)=> {
-    try{
-        if(!req.session.user) return res.status(401).send()
-        const deletePost= await deletePost(req.body.id, req.session.user)
-        if(deletedPost)
-          return res.status(200).send({ok: true})
-
-          return res.status(400).send('post not found')
-
-        const newPost= await createPost(req.body, req.session.user)
-        res.status(201).send(newPost)
-
-    }catch(err){
-        return res.status(500).send(err.message)
-    }
-})
-.get( async (req, res)=> {
-    try{
-        if(!req.session.user) return res.status(401).send()
-
-        const posts= await getPosts()
-        res.status(200).send(posts)
-
-    }catch(err){
-        return res.status(500).send(err.message)
-    }
-})
-.delete(validate(deletePostSchema), async(req, res)=>{
-    try{
-        if(!req.session.user) return res.status(401).send()
-
-    }catch(err){
-        return res.status(500).send(err.message)
-    }
-})
-
-export default withIronSessionApiRoute(handler, ironConfig)
->>>>>>> 4389f275f3e925532b25baeb740b85c60cf2984c
