@@ -40,10 +40,11 @@ function Post({text, user, date, isOwner, id}){
           id
         }
       })
-      ifresponse.status === 200)
-      mutate(`${process.env.NEXT_PUBLIC_API_URL}/api/post}`)
+      if(response.status === 200)
+      mutate(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
     }catch(err){
-      console.error(error)
+      console.error(err)
+
     }
   }
 
@@ -75,55 +76,6 @@ function Post({text, user, date, isOwner, id}){
     </PostContainer>
   )
   
-=======
-  const handleEdit=async()=>{
-    console.log("EDITAR")
-  }
-
-  const handleDelete=async()=>{
-    try{
-     const response= await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/post`,{
-       data:{
-        id
-       }
-     })
-     if(response.status === 200){
-      mutate(`${process.env.NEXT_PUBLIC_API_URL}/api/post`)
-     }
-    }catch(err){
-      console.log(err)
-    }
-  }
-
-  return(
-    <PostContainer>
-      {
-        isOwner && 
-        <ContainerMenu>
-        <Menu
-         options={[
-          {
-            text:'Editar Publicação',
-            onClick:handleEdit
-          },
-          {
-            text:'Deletar Publicação',
-            onClick:handleDelete
-          }
-         ]}
-        />
-      </ContainerMenu>
-      }
-      
-      <StyledUsername>@{user}</StyledUsername>
-      <StyledDate>{moment(date).format('LLL')}</StyledDate>
-      <ContainerText>
-       {text}
-      </ContainerText>
-    </PostContainer>
-
-  )
-
 }
 
 export default Post
