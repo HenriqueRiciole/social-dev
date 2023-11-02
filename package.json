@@ -23,13 +23,10 @@
     "next-joi": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-
     "react-hook-form": "^7.27.1",
     "styled-components": "^5.3.3",
     "swr": "^1.2.2"
-    "react-hook-form": "^7.45.1",
-    "styled-components": "^5.3.3",
-    "swr": "^1.2.2",
+
     "useref": "^1.4.4"
 
   },
