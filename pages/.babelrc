@@ -1,6 +1,15 @@
 {
+<<<<<<< HEAD
     "presents": ["next/babel"],
     "plugins": [
         ["styled-components", {"ssr":true}]
     ]
 }
+=======
+    "presets":["next/babel"],
+    "plugins":[
+       [ "styled-components",  {"ssr":true}]
+    ]
+}    
+
+>>>>>>> 4389f275f3e925532b25baeb740b85c60cf2984c

@@ -1,6 +1,10 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4389f275f3e925532b25baeb740b85c60cf2984c
 class NewDocument extends Document {
   render() {
     return (
@@ -18,6 +22,10 @@ class NewDocument extends Document {
     )
   }
 }
+<<<<<<< HEAD
+=======
+/*
+>>>>>>> 4389f275f3e925532b25baeb740b85c60cf2984c
 NewDocument.getInitialProps = async (ctx) => {
   const sheet = new ServerStyleSheet()
   const originalRenderPage = ctx.renderPage
@@ -42,5 +50,9 @@ NewDocument.getInitialProps = async (ctx) => {
     sheet.seal()
   }
 }
+<<<<<<< HEAD
 
+=======
+*/
+>>>>>>> 4389f275f3e925532b25baeb740b85c60cf2984c
 export default NewDocument
