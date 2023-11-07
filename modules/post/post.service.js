@@ -22,3 +22,15 @@ export const deletePost= async (id, user)=> {
       createBy: user.id
     })
 }
+
+export const editPost= async(body, user)=> {
+    return Post.findOneAndUpdate({
+        _id: body.id,
+        createBy: user.id
+    },{
+        text: body.text
+    }, {
+        new: true
+    })
+
+}
