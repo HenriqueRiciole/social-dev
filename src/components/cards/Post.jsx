@@ -4,7 +4,7 @@ import moment from "moment/moment";
 import axios from "axios";
 import { useSWRConfig } from "swr";
 
-import Menu from "../navigation/menu";
+import Menu from "../navigation/Menu";
 import EditPost from "./EditPost";
 
 const PostContainer= styled.div`
